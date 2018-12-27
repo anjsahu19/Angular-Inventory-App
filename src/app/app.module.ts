@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { CustomerListComponent } from './customers/customer-list/customer-list.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
