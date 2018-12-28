@@ -15,7 +15,7 @@ export class CustomerService {
   constructor(private http : Http) { }
 
   getCustomerList(){
-    this.http.get('http://localhost:60475/api/Customers').toPromise().then(res=>{
+    this.http.get('http://localhost:8089/api/Customers').toPromise().then(res=>{
     this.customerList=res.json() as Customer[];
     // console.log(res.json() as Customer[]);
     })

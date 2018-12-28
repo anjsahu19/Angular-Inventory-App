@@ -4,11 +4,11 @@ import {CustomerListComponent} from './customers/customer-list/customer-list.com
 import {CustomerComponent} from './customers/customer/customer.component';
 const routes: Routes = [
   {path : 'Customers', component:CustomerListComponent},
-  {path : 'abc', component:CustomerComponent}
+  {path : 'Settings', component:CustomerComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash: true,enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
