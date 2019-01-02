@@ -45,7 +45,7 @@ namespace InventoryApp.Controllers
       int rowsInserted = 0;
       using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["InventoryApp"].ConnectionString))
       {
-        string InsertQuery = String.Format("Insert into Customer values({0},{1},{2},{3},{4})",
+        string InsertQuery = String.Format("Insert into Customer values('{0}','{1}','{2}','{3}','{4}')",
           customer.FirstName,
           customer.LastName,
           customer.City,
@@ -67,7 +67,7 @@ namespace InventoryApp.Controllers
       int rowsUpdated = 0;
       using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["InventoryApp"].ConnectionString))
       {
-        string updateQuery = string.Format("UPDATE Customer SET FirstName={0},LastName={1},City={2},Country={3},Phone={4} where Id={5}",
+        string updateQuery = string.Format("UPDATE Customer SET FirstName='{0}',LastName='{1}',City='{2}',Country='{3}',Phone='{4}' where Id={5}",
           customer.FirstName,
           customer.LastName,
           customer.City,
