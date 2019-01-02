@@ -7,7 +7,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { HttpModule } from '@angular/http';
-
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpModule
   ],
   providers: [],

@@ -1,40 +1,46 @@
 <!-- <p>
   customer-list works!
 </p> -->
-<div class="container">
-    <div class="row">
-        <h3 class="col-md-12">Customers</h3>
-        <table  class="col-md-12 table table-hover table-responsive-lg">
-          <tr>
-            <th>Id</th>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Phone</th>
-            <th></th>
-         
-          </tr>
-          <tr *ngFor="let customer of customerService.customerList">
-            <td>{{customer.Id}}</td>
-            <td>{{customer.FirstName}}</td>
-            <td>{{customer.LastName}}</td>
-            <td>{{customer.City}}</td>
-            <td>{{customer.Country}}</td>
-            <td>{{customer.Phone}}</td>
-            <td> 
-              <a class="btn">
-                <!--(click)="showForEdit(employee)"-->
-                <i class="fa fa-pencil-square-o"></i>
-              </a>
+    <div class="row" style="padding-top:4%;">
+
+      <!-- <div class="col-md-6">
+          <app-customer></app-customer>
+      </div> -->
+
+      <div class="col-md-6">
+          <h3 class="col-md-12">Customers</h3>
+          <table  class="col-md-12 table table-hover table-responsive-lg">
+            <tr>
+              <th>Id</th>
+              <th>FirstName</th>
+              <th>LastName</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>Phone</th>
+              <th></th>
            
-                <a class="btn text-danger">
-                    <i class="fa fa-trash-o"></i>
-                  </a>
-                  <!--  (click)="onDelete(employee.EmployeeID)" -->
-            </td>
-          </tr>
-        </table>
+            </tr>
+            <tr *ngFor="let customer of customerService.customerList">
+              <td>{{customer.Id}}</td>
+              <td>{{customer.FirstName}}</td>
+              <td>{{customer.LastName}}</td>
+              <td>{{customer.City}}</td>
+              <td>{{customer.Country}}</td>
+              <td>{{customer.Phone}}</td>
+              <td> 
+                <a class="btn"  (click)="showForEdit(customer)">              
+                  <i class="fa fa-pencil-square-o"></i>
+                </a>
+             
+                  <a class="btn text-danger"  (click)="onDelete(customer.Id)">                    
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  
+              </td>
+            </tr>
+          </table>
+      </div>
+     
     </div>
     
-</div>
+

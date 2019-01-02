@@ -1,8 +1,8 @@
 export  class Customer {
     public Id:number;
     public FirstName : string;
-    LastName : string;
-    City : string;
-    Country : string;
-    Phone : string;
+    public LastName : string;
+    public City : string;
+    public Country : string;
+    public Phone : string;
 }

@@ -12,13 +12,33 @@ export class CustomerService {
 
   customerList : Customer[]
 
+  selectedCustomer : Customer
+
   constructor(private http : Http) { }
 
   getCustomerList(){
+    debugger;
     this.http.get('http://localhost:8089/api/Customers').toPromise().then(res=>{
     this.customerList=res.json() as Customer[];
-    // console.log(res.json() as Customer[]);
     })
   }
+
+  editCustomer(customer : Customer){
+    debugger;
+      this.http.put('http://localhost:8089/api/Customers/Put/?id='+customer.Id,customer).toPromise().then(res=>{
+        var result=res.text();
+        console.log(result);
+      })
+  }
+
+  deleteCustomer(Cid : number){
+    debugger;
+      this.http.delete('http://localhost:8089/api/Customers/Delete/?id='+Cid).toPromise().then(res=> {
+        var result=res.text();
+        console.log(result);
+        this.getCustomerList();
+      })
+  }
+
 
 }

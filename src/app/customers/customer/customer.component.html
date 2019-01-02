@@ -1,3 +1,37 @@
-<p>
-  customer works!
-</p>
+<h3>Add / Edit Customer</h3>
+<form class="cust-form" #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)">
+    <input type="hidden" name="ID" #EmployeeID="ngModel" [(ngModel)]="customerService.selectedCustomer.Id">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="customerService.selectedCustomer.FirstName"
+          placeholder="First Name" required>
+        <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This Field is Required.</div>
+      </div>
+      <div class="form-group col-md-6">
+        <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="customerService.selectedCustomer.LastName" placeholder="Last Name"
+          required>
+        <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">This Field is Required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="City" #Position="ngModel" [(ngModel)]="customerService.selectedCustomer.City" placeholder="City">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input class="form-control" name="Phone" #EmpCode="ngModel" [(ngModel)]="customerService.selectedCustomer.Phone" placeholder="Phone">
+      </div>
+      <div class="form-group col-md-6">
+        <input class="form-control" name="Country" #Office="ngModel" [(ngModel)]="employeeService.selectedEmployee.Country" placeholder="Country">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <button [disabled]="!customerForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+          <i class="fa fa-floppy-o"></i> Submit</button>
+      </div>
+      <div class="form-group col-md-4">
+        <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(customerForm)">
+          <i class="fa fa-repeat"></i> Reset</button>
+      </div>
+    </div>
+  </form>
