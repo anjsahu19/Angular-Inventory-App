@@ -94,9 +94,8 @@ namespace InventoryApp.Controllers
         string DeleteQuery = string.Format("Delete from Customer where Id={0}", id);
         rowsDeleted = db.Execute(DeleteQuery, new { Id = id });
       }
-      if (rowsDeleted > 0)
+      if (rowsDeleted == 0)
         return NotFound();
-
       else
         return Ok(string.Format("Customer With Id {0} deleted..", id));
     }
