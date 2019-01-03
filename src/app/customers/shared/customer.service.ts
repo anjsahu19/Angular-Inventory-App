@@ -22,6 +22,11 @@ export class CustomerService {
     this.customerList=res.json() as Customer[];
     })
   }
+  getCustomerById(Id:number){
+      this.http.get('http://localhost:8089/api/Customers/'+Id).toPromise().then(res=>{
+      this.selectedCustomer=res.json() as Customer;
+      })
+  }
 
   editCustomer(customer : Customer){
     debugger;

@@ -3,7 +3,7 @@ import {CustomerService} from '../shared/customer.service';
 import {Customer} from '../shared/customer.model';
 
 import { from } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CustomerListComponent implements OnInit {
 
-  constructor(public customerService : CustomerService) { }
+  constructor(public customerService : CustomerService, public router: Router) { }
 
   
   ngOnInit() {
@@ -20,11 +20,13 @@ export class CustomerListComponent implements OnInit {
     //console.log(Object.getOwnPropertySymbols(Customer));
   }
 
-  showForEdit(customer : Customer){
-    debugger;
-    this.customerService.selectedCustomer=Object.assign({},customer);
+  showForEdit(Cid : number){
+    // debugger;
+    // this.customerService.selectedCustomer=Object.assign({},customer);
   
        // this.customerService.editCustomer(customer);
+        debugger;
+        this.router.navigate(['/customer',Cid]);
   }
 
   onDelete(Cid : number){
