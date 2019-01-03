@@ -37,4 +37,18 @@ export class CustomerComponent implements OnInit {
     }
   }
 
+  onSubmit(form:NgForm){
+    debugger;
+      if(form.value.Id==null){
+        this._customerService.postCustomer(form.value);
+        this.resetForm(form);
+        this._router.navigate(['/Customers'])
+      }
+      else{
+        this._customerService.editCustomer(form.value);
+//        this.resetForm(form);
+ //       this._router.navigate(['/Customers'])
+      }
+  }
+
 }

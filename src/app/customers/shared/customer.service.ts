@@ -30,19 +30,34 @@ export class CustomerService {
 
   editCustomer(customer : Customer){
     debugger;
-      this.http.put('http://localhost:8089/api/Customers/Put/?id='+customer.Id,customer).toPromise().then(res=>{
+    var body = JSON.stringify(customer);
+    var headerOptions = new Headers({'Content-Type':'application/json'});
+    var requestOptions = new RequestOptions({method : RequestMethod.Post,headers : headerOptions});
+      this.http.put('http://localhost:8089/api/Customers/Put/',body,requestOptions).toPromise().then(res=>{
+        debugger;
         var result=res.text();
         console.log(result);
       })
   }
 
   deleteCustomer(Cid : number){
-    debugger;
+    
       this.http.delete('http://localhost:8089/api/Customers/Delete/?id='+Cid).toPromise().then(res=> {
         var result=res.text();
         console.log(result);
         this.getCustomerList();
       })
+  }
+
+  postCustomer(customer : Customer){
+    
+    var body = JSON.stringify(customer);
+    var headerOptions = new Headers({'Content-Type':'application/json'});
+    var requestOptions = new RequestOptions({method : RequestMethod.Post,headers : headerOptions});
+    this.http.post('http://localhost:8089/api/Customers/Post',body,requestOptions).toPromise().then(res=>{
+      var result=res.text();
+      console.log(result);
+    })
   }
 
 

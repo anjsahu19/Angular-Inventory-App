@@ -13,8 +13,6 @@ import { Router} from '@angular/router';
 export class CustomerListComponent implements OnInit {
 
   constructor(public customerService : CustomerService, public router: Router) { }
-
-  
   ngOnInit() {
     this.customerService.getCustomerList();
     //console.log(Object.getOwnPropertySymbols(Customer));
