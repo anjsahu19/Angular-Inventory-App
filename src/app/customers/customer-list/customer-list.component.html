@@ -8,7 +8,13 @@
       </div> -->
 
       <div class="col-md-6">
-          <h3 class="col-md-12">Customers</h3>
+        <div class="col-md-12">
+            <h3 class="col-md-6">Customers   
+               <button class="col-md-6" class="btn btn-link" (click)="newForm()">Add new Customers</button>
+            </h3>
+         
+        </div>
+        
           <table  class="col-md-12 table table-hover table-responsive-lg">
             <tr>
               <th>Id</th>
@@ -20,7 +26,7 @@
               <th></th>
            
             </tr>
-            <tr *ngFor="let customer of customerService.customerList">
+            <tr *ngFor="let customer of customerList">
               <td>{{customer.Id}}</td>
               <td>{{customer.FirstName}}</td>
               <td>{{customer.LastName}}</td>
