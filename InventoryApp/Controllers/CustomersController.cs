@@ -1,4 +1,5 @@
 using Dapper;
+using InventoryApp.Infrastructure;
 using InventoryApp.Models;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,18 @@ using System.Web.Http;
 
 namespace InventoryApp.Controllers
 {
+  /// <summary>
+  /// Customers
+  /// </summary>
+  [CustomActionFilter]
   public class CustomersController : ApiController
   {
 
     // GET api/<controller>
+    /// <summary>
+    /// Fetches all the customers 
+    /// </summary>
+    /// <returns>List of Customers</returns>
     public List<Customer> Get()
     {
       List<Customer> customers = new List<Customer>();

@@ -1,4 +1,5 @@
 using Dapper;
+using InventoryApp.Infrastructure;
 using InventoryApp.Models;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,17 @@ using System.Web.Http;
 
 namespace InventoryApp.Controllers
 {
+  [CustomActionFilter]
+  /// <summary>
+  /// Product API
+  /// </summary>
   public class ProductController : ApiController
   {
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    //[CustomActionFilter]
     public IHttpActionResult Get()
     {
       List<Product> products = new List<Product>();
